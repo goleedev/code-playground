@@ -1,12 +1,13 @@
-import './resizable.css';
-import { useEffect, useState } from 'react';
+import {FC, useEffect, useState} from 'react';
 import { ResizableBox, ResizableBoxProps } from 'react-resizable';
+
+import './resizable.css';
 
 interface ResizableProps {
   direction: 'horizontal' | 'vertical';
 }
 
-const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
+const Resizable: FC<ResizableProps> = ({ direction, children }) => {
   let resizableProps: ResizableBoxProps;
   const [innerHeight, setInnerHeight] = useState(window.innerHeight);
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);

@@ -1,12 +1,14 @@
-import './add-cell.css';
+import { FC } from "react";
+
 import { useActions } from '../hooks/use-actions';
+import './add-cell.css';
 
 interface AddCellProps {
   previousCellId: string | null;
   forceVisible?: boolean;
 }
 
-const AddCell: React.FC<AddCellProps> = ({ forceVisible, previousCellId }) => {
+const AddCell: FC<AddCellProps> = ({ forceVisible, previousCellId }) => {
   const { insertCellAfter } = useActions();
 
   return (
@@ -31,7 +33,7 @@ const AddCell: React.FC<AddCellProps> = ({ forceVisible, previousCellId }) => {
           <span>Text</span>
         </button>
       </div>
-      <div className="divider"></div>
+      <div className="divider" />
     </div>
   );
 };

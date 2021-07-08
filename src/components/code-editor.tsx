@@ -1,22 +1,21 @@
-import './code-editor.css';
-import './syntax.css';
-import { useRef } from 'react';
-import MonacoEditor from '@monaco-editor/react';
-import EditorDidMount from '@monaco-editor/react';
+import {FC, useRef} from 'react';
+import MonacoEditor, { EditorDidMount } from '@monaco-editor/react';
 import prettier from 'prettier';
 import parser from 'prettier/parser-babel';
 import codeShift from 'jscodeshift';
 import Highlighter from 'monaco-jsx-highlighter';
+
+import './code-editor.css';
+import './syntax.css';
 
 interface CodeEditorProps {
   initialValue: string;
   onChange(value: string): void;
 }
 
-const CodeEditor: React.FC<CodeEditorProps> = ({ onChange, initialValue }) => {
+const CodeEditor: FC<CodeEditorProps> = ({ onChange, initialValue }) => {
   const editorRef = useRef<any>();
 
-  // @ts-ignore
   const onEditorDidMount: EditorDidMount = (getValue, monacoEditor) => {
     editorRef.current = monacoEditor;
     monacoEditor.onDidChangeModelContent(() => {
@@ -58,21 +57,18 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ onChange, initialValue }) => {
     editorRef.current.setValue(formatted);
   };
 
-  // @ts-ignore
-  // @ts-ignore
   return (
     <div className="editor-wrapper">
       <button
-        className="button button-format is-primary is-small"
+        className="button button-format is-primary is-outlined is-small"
         onClick={onFormatClick}
       >
         Format
       </button>
       <MonacoEditor
-        // @ts-ignore
         editorDidMount={onEditorDidMount}
         value={initialValue}
-        theme="vs-dark"
+        theme="dark"
         language="javascript"
         height="100%"
         options={{

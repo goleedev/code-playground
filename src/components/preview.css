@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
+
 .preview-wrapper {
   position: relative;
   height: 100%;
@@ -7,13 +9,14 @@
 .preview-wrapper iframe {
   height: 100%;
   width: 100%;
+
 }
 
 .preview-error {
   position: absolute;
   top: 10px;
   left: 10px;
-  color: red;
+  color: #F90000;
 }
 
 .react-draggable-transparent-selection .preview-wrapper:after {

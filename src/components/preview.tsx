@@ -1,5 +1,5 @@
 import './preview.css';
-import { useRef, useEffect } from 'react';
+import {useRef, useEffect, FC} from 'react';
 
 interface PreviewProps {
   code: string;
@@ -7,16 +7,20 @@ interface PreviewProps {
 }
 
 const html = `
-    <html>
+    <html lang="en">
       <head>
-        <style>html { background-color: white; }</style>
+        <style>
+          html { background-color: white;
+             font-family: 'Source Sans Pro', sans-serif !important;
+          }
+        </style>
       </head>
       <body>
         <div id="root"></div>
         <script>
           const handleError = (err) => {
             const root = document.querySelector('#root');
-            root.innerHTML = '<div style="color: red;"><h4>Runtime Error</h4>' + err + '</div>';
+            root.innerHTML = '<div style="color: #F90000;"><h4>Runtime Error</h4>' + err + '</div>';
             console.error(err);
           };
 
@@ -37,7 +41,7 @@ const html = `
     </html>
   `;
 
-const Preview: React.FC<PreviewProps> = ({ code, err }) => {
+const Preview: FC<PreviewProps> = ({ code, err }) => {
   const iframe = useRef<any>();
 
   useEffect(() => {

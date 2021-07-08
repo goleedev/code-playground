@@ -1,38 +1,19 @@
-import { createStore, applyMiddleware } from 'redux';
+import {applyMiddleware, createStore} from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
+
 import reducers from './reducers';
-import { ActionType } from './action-types';
 
-export const store = createStore(reducers, {}, applyMiddleware(thunk));
+const persistConfig = {
+  key: 'root',
+  storage,
+};
 
-store.dispatch({
-  type: ActionType.INSERT_CELL_AFTER,
-  payload: {
-    id: null,
-    type: 'code',
-  },
-});
+const persistedReducer = persistReducer(persistConfig, reducers);
 
-store.dispatch({
-  type: ActionType.INSERT_CELL_AFTER,
-  payload: {
-    id: null,
-    type: 'text',
-  },
-});
-
-store.dispatch({
-  type: ActionType.INSERT_CELL_AFTER,
-  payload: {
-    id: null,
-    type: 'code',
-  },
-});
-
-store.dispatch({
-  type: ActionType.INSERT_CELL_AFTER,
-  payload: {
-    id: null,
-    type: 'text',
-  },
-});
+export default function configureStore() {
+  const store = createStore(persistedReducer, applyMiddleware(thunk));
+  const persistor = persistStore(store);
+  return { store, persistor };
+}

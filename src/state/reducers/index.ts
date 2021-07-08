@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+
 import cellsReducer from './cellsReducer';
 import bundlesReducer from './bundlesReducer';
 

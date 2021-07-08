@@ -1,37 +1,39 @@
-import './action-bar.css';
+import { FC } from "react";
+
 import { useActions } from '../hooks/use-actions';
+import './action-bar.css';
 
 interface ActionBarProps {
   id: string;
 }
 
-const ActionBar: React.FC<ActionBarProps> = ({ id }) => {
+const ActionBar: FC<ActionBarProps> = ({ id }) => {
   const { moveCell, deleteCell } = useActions();
 
   return (
     <div className="action-bar">
       <button
-        className="button is-primary is-small"
+        className="button is-primary is-outlined is-small"
         onClick={() => moveCell(id, 'up')}
       >
         <span className="icon">
-          <i className="fas fa-arrow-up"></i>
+          <i className="fas fa-arrow-up" />
         </span>
       </button>
       <button
-        className="button is-primary is-small"
+        className="button is-primary is-outlined is-small"
         onClick={() => moveCell(id, 'down')}
       >
         <span className="icon">
-          <i className="fas fa-arrow-down"></i>
+          <i className="fas fa-arrow-down" />
         </span>
       </button>
       <button
-        className="button is-primary is-small"
+        className="button is-primary is-outlined is-small"
         onClick={() => deleteCell(id)}
       >
         <span className="icon">
-          <i className="fas fa-times"></i>
+          <i className="fas fa-times" />
         </span>
       </button>
     </div>
