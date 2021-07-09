@@ -5,31 +5,31 @@
   color: #1e1e1e;
 }
 .editor-wrapper .mtk3 {
-  color: #000080;
+  color: #0080ff;
 }
 .editor-wrapper .mtk4 {
-  color: #6a9955;
+  color: #cd9731;
 }
 .editor-wrapper .mtk5 {
-  color: #569cd6;
+  color: #4fc1ff;
 }
 .editor-wrapper .mtk6 {
-  color: #b5cea8;
+  color: #ec5f67;
 }
 .editor-wrapper .mtk7 {
-  color: #646695;
+  color: #b267e6;
 }
 .editor-wrapper .mtk8 {
-  color: #c586c0;
+  color: #D9FF00;
 }
 .editor-wrapper .mtk9 {
   color: #9cdcfe;
 }
 .editor-wrapper .mtk10 {
-  color: #f44747;
+  color: #F90000;
 }
 .editor-wrapper .mtk11 {
-  color: #ce9178;
+  color: #dcdcaa;
 }
 .editor-wrapper .mtk12 {
   color: #6796e6;
@@ -100,7 +100,7 @@
 }
 
 .editor-wrapper .mtk104.JsxElement.JsxText {
-  color: darkgoldenrod;
+  color: #ec5f67;
 }
 
 .editor-wrapper .mtk105.glyph.Identifier.JsxElement {

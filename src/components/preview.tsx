@@ -1,5 +1,5 @@
-import './preview.css';
 import {useRef, useEffect, FC} from 'react';
+import './preview.css';
 
 interface PreviewProps {
   code: string;
